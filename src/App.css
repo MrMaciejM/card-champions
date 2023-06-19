@@ -1,0 +1,20 @@
+p {
+  color: black;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.elemCards {
+  width: 70%;
+  border-radius: 20px;
+  margin: 2rem 0;
+}
+
+.cardsContainer {
+  display: flex;
+  background-color: #f6f8e8;
+}
+.cardsContainer div {
+  display: flex;
+  justify-content: space-around;
+}
