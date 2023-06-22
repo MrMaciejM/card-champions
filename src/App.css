@@ -1,3 +1,9 @@
+/* index.css has all the global resets */
+
+main {
+  font-family: sans-serif;
+  background-color: #d6d9c0;
+}
 p {
   color: black;
   font-size: 2rem;
@@ -5,16 +11,25 @@ p {
 }
 
 .elemCards {
-  width: 70%;
+  width: 30%;
   border-radius: 20px;
   margin: 2rem 0;
+  cursor: pointer;
+}
+
+.elemCards:active {
+  filter: saturate(2.5);
 }
 
 .cardsContainer {
   display: flex;
-  background-color: #f6f8e8;
 }
 .cardsContainer div {
   display: flex;
   justify-content: space-around;
+  border: solid 1px green;
+}
+
+h1 {
+  text-align: center;
 }

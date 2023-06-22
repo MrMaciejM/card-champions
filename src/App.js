@@ -2,23 +2,25 @@ import "./App.css";
 import waterCard from "./assets/water-card.gif";
 import fireCard from "./assets/fire-card.gif";
 import grassCard from "./assets/grass-card.gif";
+import cardDeck from "./assets/card-deck.gif";
+
+import score from "./Score";
 
 function App() {
   return (
-    <div className="cardsContainer">
-      <div>
-        {/* prettier-ignore */}
-        <img id="waterCardImg" className="elemCards" src={waterCard} alt="water card" />
+    <main>
+      <h1 alt="Card Champions">Card Champions</h1>
+      <div className="cardsContainer">
+        <div>
+          {/* prettier-ignore */}
+          <img id="cardDeckImg" className="elemCards" src={cardDeck} alt="water card" onClick={score} />
+        </div>
+        <div>
+          {/* prettier-ignore */}
+          <img id="cardDeckImg" className="elemCards" src={cardDeck} alt="water card" onClick={score} />
+        </div>
       </div>
-      <div>
-        {/* prettier-ignore */}
-        <img id="fireCardImg"  className="elemCards"src={fireCard} alt="fire card" />
-      </div>
-      <div>
-        {/* prettier-ignore */}
-        <img id="grassCardImg"  className="elemCards"src={grassCard} alt="grass card" />
-      </div>
-    </div>
+    </main>
   );
 }
 
