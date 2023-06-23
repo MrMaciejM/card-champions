@@ -2,7 +2,9 @@
 
 main {
   font-family: sans-serif;
-  background-color: #d6d9c0;
+  background-image: url("/src/assets/CC-theme.png");
+  background-position: center;
+  background-size: cover;
 }
 p {
   color: black;

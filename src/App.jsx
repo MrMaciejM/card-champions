@@ -1,20 +1,21 @@
 import "./App.css";
+import React, {useState} from "react"; 
+
 import waterCard from "./assets/water-card.gif";
 import fireCard from "./assets/fire-card.gif";
 import grassCard from "./assets/grass-card.gif";
 import cardDeck from "./assets/card-deck.gif";
 
-import React, {useState} from "react"; 
-
 
 function App() {
-  let player1Score = 0;
-  let player2Score = 0;
+  let playerScore = 0;
+  let cpuScore = 0;
+
   const [waterValue] = useState("water");
   const [fireValue] = useState("fire");
   const [grassValue] = useState("grass");
   // 0 = water | 1 = fire | 2 = grass
-
+  
   // value is e.g. fireValue above, depending on card clicked
   const handlePlayerChoice = (value) => {
     cpuLogic(value);
@@ -35,44 +36,46 @@ function App() {
       gameScore();
     }
     else if (playerChoice === "water" && cpuChoice === "grass") {
-      player2Score++;
+      cpuScore++;
       gameScore();
     }
     else if (playerChoice === "water" && cpuChoice === "fire") {
-      player1Score++;
+      console.log("Player score var = " + playerScore);
+      playerScore++;
       gameScore(); 
     }
     else if (playerChoice === "fire" && cpuChoice === "grass") {
-      player1Score++;
+      playerScore++;
       gameScore(); 
     }
     else if (playerChoice === "fire" && cpuChoice === "water") {
-      player2Score++;
+      cpuScore++;
       gameScore(); 
     }
     else if (playerChoice === "grass" && cpuChoice === "water") {
-      player1Score++;
+      playerScore++;
       gameScore(); 
     }
     else if (playerChoice === "grass" && cpuChoice === "fire") {
-      player2Score++;
+      cpuScore++;
       gameScore(); 
     }
   }
 
   function gameScore() {
-    console.log("player 1 score: " + player1Score);
-    console.log("player 2 score: " + player2Score);
+    let playerScoreElement = document.getElementById("playerScore")
+    let cpuScoreElement = document.getElementById("cpuScore")
+    playerScoreElement.textContent = `Player 1: ${playerScore}`; 
+    cpuScoreElement.textContent = `Player 2: ${cpuScore}`; 
   }
   
-
   return (
     <main>
       <h1>Card Champions</h1>
       <h2>Score</h2>
       <div className="playerScoresDiv">
-      <h3>Player 1: {player1Score}</h3>
-      <h3>Player 2: {player2Score}</h3>
+      <h3 id="playerScore">Player 1: {playerScore}</h3>
+      <h3 id="cpuScore">Player 2: {cpuScore}</h3>
       </div>
 
       <div className="cardsContainer">
