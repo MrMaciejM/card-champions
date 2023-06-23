@@ -30,6 +30,22 @@ p {
   border: solid 1px green;
 }
 
-h1 {
+h1,
+h2 {
+  margin-bottom: 2rem;
   text-align: center;
+}
+
+#cardDeckImg {
+  width: 70%;
+}
+
+.scoreParentDiv {
+  text-align: center;
+}
+
+.playerScoresDiv {
+  display: flex;
+  justify-content: center;
+  column-gap: 5rem;
 }
