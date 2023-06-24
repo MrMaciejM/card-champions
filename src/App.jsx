@@ -29,20 +29,18 @@ function App() {
         break;
       case "fire":
         const fireAudio = new Audio(fireSound);
-        fireAudio.volume = 0.8;
+        fireAudio.volume = 0.3;
         fireAudio.play();
         break;
       case "grass":
         const grassAudio = new Audio(grassSound);
-        grassAudio.volume = 0.65;
+        grassAudio.volume = 0.5;
         grassAudio.play();
         break;
 
         default: 
         console.log("Sound not found, or could not be played");
     }
-    
-    
   }
 
   // value depends on the card clicked
