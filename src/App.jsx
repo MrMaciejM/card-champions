@@ -1,10 +1,16 @@
 import "./App.css";
 import React, {useState} from "react"; 
 
+// image assets 
 import waterCard from "./assets/water-card.gif";
 import fireCard from "./assets/fire-card.gif";
 import grassCard from "./assets/grass-card.gif";
 import cardDeck from "./assets/card-deck.gif";
+
+// sound assets
+import waterSound from "./assets/Water-bubbles.mp3";
+import fireSound from "./assets/Fire-intense.mp3";
+import grassSound from "./assets/Leaves-rustle.mp3";
 
 
 function App() {
@@ -14,11 +20,35 @@ function App() {
   const [waterValue] = useState("water");
   const [fireValue] = useState("fire");
   const [grassValue] = useState("grass");
-  // 0 = water | 1 = fire | 2 = grass
   
-  // value is e.g. fireValue above, depending on card clicked
+  function soundEffect(element) {
+    switch(element) {
+      case "water":
+        const waterAudio = new Audio(waterSound);
+        waterAudio.play();
+        break;
+      case "fire":
+        const fireAudio = new Audio(fireSound);
+        fireAudio.volume = 0.8;
+        fireAudio.play();
+        break;
+      case "grass":
+        const grassAudio = new Audio(grassSound);
+        grassAudio.volume = 0.65;
+        grassAudio.play();
+        break;
+
+        default: 
+        console.log("Sound not found, or could not be played");
+    }
+    
+    
+  }
+
+  // value depends on the card clicked
   const handlePlayerChoice = (value) => {
     cpuLogic(value);
+    soundEffect(value);
   };
 
   // game logic
