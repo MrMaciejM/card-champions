@@ -1,32 +1,87 @@
-/* index.css has all the global resets */
+/* index.css has all the global resets, wallpaper theme and font family */
 
+/* Font color and styling */
 main {
-  font-family: sans-serif;
+  color: #1151aa;
 }
+
+h1,
+h2,
+h3,
 p {
-  color: black;
+  /* x, y, offset, blur  */
+  /* text-shadow: 1px 0px 5px rgb(64, 88, 169); */
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(180deg, #c3c316, #d0d416, #f8fc07);
+}
+
+p {
   font-size: 2rem;
   text-align: center;
 }
-
+.copyright {
+  font-size: 1.2rem;
+}
 .elemCards {
-  width: 30%;
+  width: 90%;
+  height: auto;
   border-radius: 20px;
-  margin: 2rem 0;
+  margin: 1rem 0.5rem;
   cursor: pointer;
 }
 
 .elemCards:active {
   filter: saturate(2.5);
 }
+#grassCardImg {
+  /* border: solid 5px red; */
+}
+.cardDeckDiv {
+  justify-content: center !important;
+}
+#cardDeckImg {
+  width: 60%;
+  height: 60%;
+  cursor: default;
+  filter: none;
+}
+
+/* TEST CARDS */
+#cardBattleDiv {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 2rem;
+}
+.testCard {
+  width: 30%;
+  height: 60%;
+  margin: 1rem 0.8rem;
+  border-radius: 20px;
+}
 
 .cardsContainer {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  border: solid 2px red;
+  padding-bottom: 5rem;
+  margin-bottom: 5rem;
 }
 .cardsContainer div {
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: left;
+  padding-bottom: 5rem;
   border: solid 1px green;
+}
+
+#tripleCardsDiv {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+#tripleCardsDiv img:nth-child(3) {
+  margin-left: 4.2rem;
 }
 
 h1,
@@ -35,16 +90,13 @@ h2 {
   text-align: center;
 }
 
-#cardDeckImg {
-  width: 85%;
-}
-
 .scoreParentDiv {
   text-align: center;
 }
 
 .playerScoresDiv {
   display: flex;
-  justify-content: center;
-  column-gap: 5rem;
+  justify-content: space-between;
+  margin: 0 3rem;
+  /* column-gap: 25rem; */
 }

@@ -5,8 +5,24 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: "Caprasimo";
+  src: url("./assets/fonts/Caprasimo/Caprasimo-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Ysabeau_SC";
+  src: url("./assets/fonts/Ysabeau_SC/YsabeauSC-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 800;
+}
+
 body {
+  font-family: "Ysabeau_SC";
+  font-size: 1.4rem;
   background-image: url("/src/assets/CC-theme.png");
   background-position: right;
   background-repeat: no-repeat;
+  background-size: cover;
 }
