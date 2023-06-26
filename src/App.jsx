@@ -16,6 +16,7 @@ import scoreSound from "./assets/score-sound.mp3";
 import zapSound from "./assets/zap-effect.mp3";
 
 
+
 function App() {
   let playerScore = 0;
   let cpuScore = 0;
@@ -65,6 +66,16 @@ function App() {
     
   }
 
+// animation testing 
+const leftCard = document.getElementById("battleCardLeft")
+function spinAnimationLeft() {
+  leftCard.classList.add("rotate-animation"); 
+  leftCard.addEventListener(
+    "animationend", () => {
+      leftCard.classList.remove("rotate-animation");
+    }
+  )   
+}
 
   // player choice - value depends on the card clicked
   const handlePlayerChoice = (value) => {
@@ -145,8 +156,10 @@ function App() {
           <img id="grassCardImg" className="elemCards" src={grassCard} alt="grass card" onClick={() => handlePlayerChoice(grassValue)} />
         </div>
           <div id="cardBattleDiv">
-          <img className="testCard" alt="aa" src={testCard}/>
-          <img className="testCard" alt="aa" src={testCard}/>
+          <img id="battleCardLeft" className={`testCard`}  alt="aa" src={testCard} onClick={() => {
+            spinAnimationLeft();
+          }}/>
+          <img id="battleCardRight" className="testCard" alt="aa" src={testCard}/>
           </div>
         <div className="cardDeckDiv">
           {/* prettier-ignore */}

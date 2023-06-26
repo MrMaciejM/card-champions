@@ -55,7 +55,7 @@ p {
   margin: 0 2rem;
 }
 .testCard {
-  width: 30%;
+  width: 35%;
   height: 60%;
   margin: 1rem 0.8rem;
   border-radius: 20px;
@@ -99,4 +99,17 @@ h2 {
   justify-content: space-between;
   margin: 0 3rem;
   /* column-gap: 25rem; */
+}
+
+/* ANIMATIONS */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.rotate-animation {
+  animation: spin 0.7s forwards;
 }
