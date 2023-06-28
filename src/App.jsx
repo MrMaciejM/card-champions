@@ -7,29 +7,35 @@ import fireCard from "./assets/fire-card.gif";
 import grassCard from "./assets/grass-card.gif";
 import cardDeck from "./assets/card-deck.gif";
 import testCard from "./assets/placeholder-card.png";
-import tornado from "./assets/tornado.gif";
 
 // sound assets
-import waterSound from "./assets/Water-bubbles.mp3";
+import waterSound from "./assets/Water-bubbles-fixed.mp3";
 import fireSound from "./assets/Fire-intense.mp3";
 import grassSound from "./assets/Leaves-rustle.mp3";
 import scoreSound from "./assets/score-sound.mp3";
 import zapSound from "./assets/zap-effect.mp3";
 
 function App() {
-  let playerScore = 0;
-  let cpuScore = 0;
+  const [playerScore, setPlayerScore] = useState(0);
+  const [cpuScore, setCpuScore] = useState(0);
 
   const [waterValue] = useState("water");
   const [fireValue] = useState("fire");
   const [grassValue] = useState("grass");
 
-  const [testCardPath, setTestCardPath] = useState("./assets/placeholder-card.png")
-  const [waterPathImg, setWaterPathImg] = useState("./assets/water-card.gif");
-  const [firePathImg, setFirePathImg] = useState("./assets/fire-card.gif");
-  const [grassPathImg, setGrassPathImg] = useState("./assets/grass-card.gif");
-  
-  // sound effect for cards
+  const [testCardPath, setTestCardPath] = useState(testCard);
+
+  /*
+    Index: 
+    - Sound effect for cards - 34
+    - Sound effects for won and loss rounds - 58
+    - Animation of battle cards - 74
+    - Delay action and card appearance - 99
+    - Handle player choice, value depends on the card clicked - 114
+    - Game logic - 123
+  */
+
+  // Sound effect for cards
   function soundEffect(element) {
     switch(element) {
       case "water":
@@ -52,25 +58,27 @@ function App() {
     }
   }
 
-  // sounds for won and loss rounds
+  // Sound effects for won and loss rounds
   function wonRoundSound() {
     const wonSound = new Audio(scoreSound);
-    wonSound.volume = 1;
+    wonSound.volume = 0.3;
     setTimeout(() => {
       wonSound.play();
-    }, 3000);
+    }, 500);
   }
   function lostRoundSound() {
     const lossRound = new Audio(zapSound);
-    lossRound.volume = 1;
+    lossRound.volume = 0.3;
     setTimeout(() => {
       lossRound.play();
-    }, 3000);
+    }, 500);
   }
 
 // Animation of battle cards 
-const leftBattleCard = document.getElementById("battleCardLeft")
 function spinAnimationLeft() {
+  const leftBattleCard = document.getElementById("battleCardLeft")
+  console.log("left battlecard: " + leftBattleCard);
+
   leftBattleCard.classList.add("rotate-animation"); 
   leftBattleCard.addEventListener(
     "animationend", () => {
@@ -80,6 +88,7 @@ function spinAnimationLeft() {
 }
 
 const rightBattleCard = document.getElementById("battleCardRight")
+
 function spinAnimationRight() {
   rightBattleCard.classList.add("rotate-animation"); 
   rightBattleCard.addEventListener(
@@ -89,23 +98,22 @@ function spinAnimationRight() {
   )   
 }
 
-// delay action and z-index battle cards function 
+// Delay action and card appearance 
 function delayAction(element) {
-  console.log("element result:" + element);
+  //console.log("element result:" + element);
   spinAnimationLeft(); 
   setTimeout(() => {
     if(element === "water") {
-      const waterPath = "./assets/water-card.gif"
       setTestCardPath(waterCard); 
     }
-  }, 850); 
+  }, 1000); 
   setTimeout(() => {        
     console.log("Timed out - 5 seconds");
     setTestCardPath(testCard); 
-  }, 5200); 
+  }, 5000); 
 }
 
-  // player choice - value depends on the card clicked
+  // Handle player choice - value depends on the card clicked
   const handlePlayerChoice = (value) => {
     cpuLogic(value);
     soundEffect(value);
@@ -117,9 +125,11 @@ function delayAction(element) {
     const elements = ["water", "fire", "grass"]; 
     let randomiser = Math.floor(Math.random() * 3);
     let cpuChoice = elements[randomiser]; 
+
     console.log("player choice: " + playerChoice);
     console.log("rnd result: " + elements[randomiser]);
 
+    setTimeout(() => { 
     if (playerChoice === cpuChoice) {
       //console.log("DRAW!");
       gameScore();
@@ -131,7 +141,10 @@ function delayAction(element) {
     }
     else if (playerChoice === "water" && cpuChoice === "fire") {
       //console.log("Player score var = " + playerScore);
-      playerScore++;
+      playerScore += 1; 
+      //console.log("139: setPlayerScore: " + setPlayerScore);
+      console.log("140: playerScore: " + playerScore);
+      //playerScore++;
       wonRoundSound();
       gameScore(); 
     }
@@ -155,13 +168,14 @@ function delayAction(element) {
       lostRoundSound();
       gameScore(); 
     }
+  }, 3000); 
   }
 
   function gameScore() {
     let playerScoreElement = document.getElementById("playerScore")
     let cpuScoreElement = document.getElementById("cpuScore")
-    playerScoreElement.textContent = `Player 1: ${playerScore}`; 
-    cpuScoreElement.textContent = `Player 2: ${cpuScore}`; 
+    playerScoreElement.textContent = `Challenger: ${playerScore}`; 
+    cpuScoreElement.textContent = `Card Champion: ${cpuScore}`; 
   }
 
   // date for copyright 
