@@ -165,15 +165,6 @@ function delayAction(element) {
     
   }
 
-  function gameScore() {
-    //setPlayerScore(playerScore); // Update the playerScore state
-    //setCpuScore(cpuScore); // Update the cpuScore state
-    //let playerScoreElement = document.getElementById("playerScore")
-    //let cpuScoreElement = document.getElementById("cpuScore")
-    //playerScoreElement.textContent = `Challenger: ${playerScore}`; 
-    //cpuScoreElement.textContent = `Card Champion: ${cpuScore}`; 
-  }
-
   // date for copyright 
   const currentDate = new Date();
   const dateFormatted = currentDate.getFullYear(); 
