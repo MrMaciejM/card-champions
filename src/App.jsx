@@ -119,14 +119,12 @@ function delayAction(element) {
     delayAction(value);
   };
 
-// ****** TESTING SCORING SYSTEM 
+  // game logic
   useEffect(() => {
     console.log("playerScore:", playerScore);
     console.log("CPUScore:", cpuScore);
   }, [playerScore, cpuScore]);
-
-
-  // game logic
+ 
   function cpuLogic (playerChoice) {
     const elements = ["water", "fire", "grass"]; 
     let randomiser = Math.floor(Math.random() * 3);
