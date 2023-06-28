@@ -23,17 +23,8 @@ function App() {
   const [fireValue] = useState("fire");
   const [grassValue] = useState("grass");
 
-  const [testCardPath, setTestCardPath] = useState(testCard);
-
-  /*
-    Index: 
-    - Sound effect for cards - 34
-    - Sound effects for won and loss rounds - 58
-    - Animation of battle cards - 74
-    - Delay action and card appearance - 99
-    - Handle player choice, value depends on the card clicked - 114
-    - Game logic - 123
-  */
+  const [leftCardPath, setleftCardPath] = useState(testCard);
+  const [rightCardPath, setRightCardPath] = useState(testCard);
 
   // Sound effect for cards
   function soundEffect(element) {
@@ -86,9 +77,8 @@ function spinAnimationLeft() {
   )   
 }
 
-const rightBattleCard = document.getElementById("battleCardRight")
-
 function spinAnimationRight() {
+  const rightBattleCard = document.getElementById("battleCardRight")
   rightBattleCard.classList.add("rotate-animation"); 
   rightBattleCard.addEventListener(
     "animationend", () => {
@@ -97,18 +87,45 @@ function spinAnimationRight() {
   )   
 }
 
-// Delay action and card appearance 
-function delayAction(element) {
+// Delay action and set player card appearance 
+function delayActionAndSetPlayerCard(element) {
   //console.log("element result:" + element);
   spinAnimationLeft(); 
   setTimeout(() => {
     if(element === "water") {
-      setTestCardPath(waterCard); 
+      setleftCardPath(waterCard); 
+    }
+    else if(element === "fire") {
+      setleftCardPath(fireCard); 
+    }
+    else if(element === "grass") {
+      setleftCardPath(grassCard); 
     }
   }, 1000); 
   setTimeout(() => {        
     console.log("Timed out - 5 seconds");
-    setTestCardPath(testCard); 
+    setleftCardPath(testCard); 
+  }, 5000); 
+}
+
+// Delay action and set CPU card appearance 
+function delayActionAndSetCpuCard(element) {
+  //console.log("element result:" + element);
+  spinAnimationRight(); 
+  setTimeout(() => {
+    if(element === "water") {
+      setRightCardPath(waterCard); 
+    }
+    else if(element === "fire") {
+      setRightCardPath(fireCard); 
+    }
+    else if(element === "grass") {
+      setRightCardPath(grassCard); 
+    }
+  }, 1000); 
+  setTimeout(() => {        
+    console.log("CPU Timed out - 5 seconds");
+    setRightCardPath(testCard); 
   }, 5000); 
 }
 
@@ -116,7 +133,7 @@ function delayAction(element) {
   const handlePlayerChoice = (value) => {
     cpuLogic(value);
     soundEffect(value);
-    delayAction(value);
+    delayActionAndSetPlayerCard(value);
   };
 
   // game logic
@@ -131,7 +148,7 @@ function delayAction(element) {
     let cpuChoice = elements[randomiser]; 
     console.log("player choice: " + playerChoice);
     console.log("rnd result: " + elements[randomiser]);
-
+    delayActionAndSetCpuCard(cpuChoice); 
     setTimeout(() => { 
     if (playerChoice === cpuChoice) {
       //console.log("DRAW!");
@@ -186,13 +203,8 @@ function delayAction(element) {
           <img id="grassCardImg" className="elemCards" src={grassCard} alt="grass card" onClick={() => handlePlayerChoice(grassValue)} />
         </div>
           <div id="cardBattleDiv">
-          <img id="battleCardLeft" className={`testCard`}  alt="aa" src={testCardPath} onClick={() => {
-            //spinAnimationLeft();
-          }}/>
-          <img id="battleCardRight" className="testCard" alt="aa" src={testCard}
-          onClick={() => {
-            //spinAnimationRight();
-          }}/>
+          <img id="battleCardLeft" className={`testCard`}  alt="aa" src={leftCardPath} />
+          <img id="battleCardRight" className="testCard" alt="aa" src={rightCardPath}  />
           </div>
         <div className="cardDeckDiv">
           {/* prettier-ignore */}
