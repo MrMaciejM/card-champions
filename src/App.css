@@ -102,14 +102,17 @@ h2 {
 }
 
 /* ANIMATIONS */
-@keyframes spin {
+@keyframes fadeout {
   0% {
-    transform: rotate(0deg);
+    /* transform: rotate(0deg); */
+    opacity: 1;
   }
   100% {
-    transform: rotate(360deg);
+    /* transform: rotate(360deg);
+     */
+    opacity: 0;
   }
 }
 .rotate-animation {
-  animation: spin 0.7s forwards;
+  animation: fadeout 1.2s forwards;
 }

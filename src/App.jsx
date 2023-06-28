@@ -1,12 +1,13 @@
 import "./App.css";
 import React, {useState} from "react"; 
 
-// image assets 
+// image/gif assets 
 import waterCard from "./assets/water-card.gif";
 import fireCard from "./assets/fire-card.gif";
 import grassCard from "./assets/grass-card.gif";
 import cardDeck from "./assets/card-deck.gif";
 import testCard from "./assets/placeholder-card.png";
+import tornado from "./assets/tornado.gif";
 
 // sound assets
 import waterSound from "./assets/Water-bubbles.mp3";
@@ -15,8 +16,6 @@ import grassSound from "./assets/Leaves-rustle.mp3";
 import scoreSound from "./assets/score-sound.mp3";
 import zapSound from "./assets/zap-effect.mp3";
 
-
-
 function App() {
   let playerScore = 0;
   let cpuScore = 0;
@@ -24,6 +23,11 @@ function App() {
   const [waterValue] = useState("water");
   const [fireValue] = useState("fire");
   const [grassValue] = useState("grass");
+
+  const [testCardPath, setTestCardPath] = useState("./assets/placeholder-card.png")
+  const [waterPathImg, setWaterPathImg] = useState("./assets/water-card.gif");
+  const [firePathImg, setFirePathImg] = useState("./assets/fire-card.gif");
+  const [grassPathImg, setGrassPathImg] = useState("./assets/grass-card.gif");
   
   // sound effect for cards
   function soundEffect(element) {
@@ -39,7 +43,7 @@ function App() {
         break;
       case "grass":
         const grassAudio = new Audio(grassSound);
-        grassAudio.volume = 0.5;
+        grassAudio.volume = 0.3;
         grassAudio.play();
         break;
 
@@ -55,7 +59,6 @@ function App() {
     setTimeout(() => {
       wonSound.play();
     }, 3000);
-    
   }
   function lostRoundSound() {
     const lossRound = new Audio(zapSound);
@@ -63,24 +66,50 @@ function App() {
     setTimeout(() => {
       lossRound.play();
     }, 3000);
-    
   }
 
-// animation testing 
-const leftCard = document.getElementById("battleCardLeft")
+// Animation of battle cards 
+const leftBattleCard = document.getElementById("battleCardLeft")
 function spinAnimationLeft() {
-  leftCard.classList.add("rotate-animation"); 
-  leftCard.addEventListener(
+  leftBattleCard.classList.add("rotate-animation"); 
+  leftBattleCard.addEventListener(
     "animationend", () => {
-      leftCard.classList.remove("rotate-animation");
+      leftBattleCard.classList.remove("rotate-animation");
     }
   )   
+}
+
+const rightBattleCard = document.getElementById("battleCardRight")
+function spinAnimationRight() {
+  rightBattleCard.classList.add("rotate-animation"); 
+  rightBattleCard.addEventListener(
+    "animationend", () => {
+      rightBattleCard.classList.remove("rotate-animation");
+    }
+  )   
+}
+
+// delay action and z-index battle cards function 
+function delayAction(element) {
+  console.log("element result:" + element);
+  spinAnimationLeft(); 
+  setTimeout(() => {
+    if(element === "water") {
+      const waterPath = "./assets/water-card.gif"
+      setTestCardPath(waterCard); 
+    }
+  }, 850); 
+  setTimeout(() => {        
+    console.log("Timed out - 5 seconds");
+    setTestCardPath(testCard); 
+  }, 5200); 
 }
 
   // player choice - value depends on the card clicked
   const handlePlayerChoice = (value) => {
     cpuLogic(value);
     soundEffect(value);
+    delayAction(value);
   };
 
   // game logic
@@ -92,7 +121,7 @@ function spinAnimationLeft() {
     console.log("rnd result: " + elements[randomiser]);
 
     if (playerChoice === cpuChoice) {
-      console.log("DRAW!");
+      //console.log("DRAW!");
       gameScore();
     }
     else if (playerChoice === "water" && cpuChoice === "grass") {
@@ -101,7 +130,7 @@ function spinAnimationLeft() {
       gameScore();
     }
     else if (playerChoice === "water" && cpuChoice === "fire") {
-      console.log("Player score var = " + playerScore);
+      //console.log("Player score var = " + playerScore);
       playerScore++;
       wonRoundSound();
       gameScore(); 
@@ -156,17 +185,20 @@ function spinAnimationLeft() {
           <img id="grassCardImg" className="elemCards" src={grassCard} alt="grass card" onClick={() => handlePlayerChoice(grassValue)} />
         </div>
           <div id="cardBattleDiv">
-          <img id="battleCardLeft" className={`testCard`}  alt="aa" src={testCard} onClick={() => {
-            spinAnimationLeft();
+          <img id="battleCardLeft" className={`testCard`}  alt="aa" src={testCardPath} onClick={() => {
+            //spinAnimationLeft();
           }}/>
-          <img id="battleCardRight" className="testCard" alt="aa" src={testCard}/>
+          <img id="battleCardRight" className="testCard" alt="aa" src={testCard}
+          onClick={() => {
+            //spinAnimationRight();
+          }}/>
           </div>
         <div className="cardDeckDiv">
           {/* prettier-ignore */}
           <img id="cardDeckImg" className="elemCards" src={cardDeck} alt="water card" />
         </div>
       </div>
-      <p className="copyright">Copyright © {dateFormatted} - Maciej</p>
+      <p className="copyright">Copyright © {dateFormatted} - Maciej M</p>
     </main>
   );
 }
