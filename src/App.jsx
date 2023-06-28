@@ -1,5 +1,5 @@
 import "./App.css";
-import React, {useState} from "react"; 
+import React, {useState, useEffect} from "react"; 
 
 // image/gif assets 
 import waterCard from "./assets/water-card.gif";
@@ -77,8 +77,7 @@ function App() {
 // Animation of battle cards 
 function spinAnimationLeft() {
   const leftBattleCard = document.getElementById("battleCardLeft")
-  console.log("left battlecard: " + leftBattleCard);
-
+  //console.log("left battlecard: " + leftBattleCard);
   leftBattleCard.classList.add("rotate-animation"); 
   leftBattleCard.addEventListener(
     "animationend", () => {
@@ -120,62 +119,61 @@ function delayAction(element) {
     delayAction(value);
   };
 
+// ****** TESTING SCORING SYSTEM 
+  useEffect(() => {
+    console.log("playerScore:", playerScore);
+    console.log("CPUScore:", cpuScore);
+  }, [playerScore, cpuScore]);
+
+
   // game logic
   function cpuLogic (playerChoice) {
     const elements = ["water", "fire", "grass"]; 
     let randomiser = Math.floor(Math.random() * 3);
     let cpuChoice = elements[randomiser]; 
-
     console.log("player choice: " + playerChoice);
     console.log("rnd result: " + elements[randomiser]);
 
     setTimeout(() => { 
     if (playerChoice === cpuChoice) {
       //console.log("DRAW!");
-      gameScore();
     }
     else if (playerChoice === "water" && cpuChoice === "grass") {
-      cpuScore++;
+      setCpuScore(prevScore => prevScore + 1); 
       lostRoundSound()
-      gameScore();
     }
     else if (playerChoice === "water" && cpuChoice === "fire") {
-      //console.log("Player score var = " + playerScore);
-      playerScore += 1; 
-      //console.log("139: setPlayerScore: " + setPlayerScore);
-      console.log("140: playerScore: " + playerScore);
-      //playerScore++;
+      setPlayerScore(prevScore => prevScore + 1); 
       wonRoundSound();
-      gameScore(); 
-    }
+    }  
     else if (playerChoice === "fire" && cpuChoice === "grass") {
-      playerScore++;
+      setPlayerScore(prevScore => prevScore + 1); 
       wonRoundSound();
-      gameScore(); 
     }
     else if (playerChoice === "fire" && cpuChoice === "water") {
-      cpuScore++;
+      setCpuScore(prevScore => prevScore + 1); 
       lostRoundSound();
-      gameScore(); 
     }
     else if (playerChoice === "grass" && cpuChoice === "water") {
-      playerScore++;
+      setPlayerScore(prevScore => prevScore + 1); 
       wonRoundSound();
-      gameScore(); 
     }
     else if (playerChoice === "grass" && cpuChoice === "fire") {
-      cpuScore++;
+      setCpuScore(prevScore => prevScore + 1); 
       lostRoundSound();
-      gameScore(); 
-    }
+    } 
   }, 3000); 
+  console.log("149: playerScore: " + playerScore)
+    
   }
 
   function gameScore() {
-    let playerScoreElement = document.getElementById("playerScore")
-    let cpuScoreElement = document.getElementById("cpuScore")
-    playerScoreElement.textContent = `Challenger: ${playerScore}`; 
-    cpuScoreElement.textContent = `Card Champion: ${cpuScore}`; 
+    //setPlayerScore(playerScore); // Update the playerScore state
+    //setCpuScore(cpuScore); // Update the cpuScore state
+    //let playerScoreElement = document.getElementById("playerScore")
+    //let cpuScoreElement = document.getElementById("cpuScore")
+    //playerScoreElement.textContent = `Challenger: ${playerScore}`; 
+    //cpuScoreElement.textContent = `Card Champion: ${cpuScore}`; 
   }
 
   // date for copyright 
