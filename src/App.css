@@ -5,6 +5,22 @@ main {
   color: #1151aa;
 }
 
+header {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+header h1 {
+  text-align: center;
+}
+#instructionsElement {
+  width: 45%;
+  margin-left: 50%;
+}
+
+#instructionsElement:hover {
+  cursor: pointer;
+}
+
 h1,
 h2,
 h3,
@@ -115,4 +131,25 @@ h2 {
 }
 .rotate-animation {
   animation: fadeout 1.2s forwards;
+}
+/* GAME INSTRUCTIONS  */
+.instructionsDiv {
+  display: block;
+  position: absolute;
+  transform: translate(-50%, -5%);
+  left: 50%;
+  width: 80%;
+  background-color: #1151aa;
+  padding: 1rem 0.2rem;
+  border-radius: 11px;
+  border: solid 2px #a4cdff;
+}
+.instructionsDiv p {
+  font-size: 1.4rem;
+}
+.instructionsDiv p:first-child {
+  font-size: 2.2rem;
+}
+strong {
+  color: #e7e707;
 }

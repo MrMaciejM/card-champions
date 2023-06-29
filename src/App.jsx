@@ -1,4 +1,5 @@
 import "./App.css";
+import Instructions from "./instructions"; 
 import React, {useState, useEffect} from "react"; 
 
 // image/gif assets 
@@ -55,20 +56,19 @@ function App() {
     wonSound.volume = 0.3;
     setTimeout(() => {
       wonSound.play();
-    }, 500);
+    }, 250);
   }
   function lostRoundSound() {
     const lossRound = new Audio(zapSound);
     lossRound.volume = 0.3;
     setTimeout(() => {
       lossRound.play();
-    }, 500);
+    }, 200);
   }
 
 // Animation of battle cards 
 function spinAnimationLeft() {
   const leftBattleCard = document.getElementById("battleCardLeft")
-  //console.log("left battlecard: " + leftBattleCard);
   leftBattleCard.classList.add("rotate-animation"); 
   leftBattleCard.addEventListener(
     "animationend", () => {
@@ -89,7 +89,6 @@ function spinAnimationRight() {
 
 // Delay action and set player card appearance 
 function delayActionAndSetPlayerCard(element) {
-  //console.log("element result:" + element);
   spinAnimationLeft(); 
   setTimeout(() => {
     if(element === "water") {
@@ -110,7 +109,6 @@ function delayActionAndSetPlayerCard(element) {
 
 // Delay action and set CPU card appearance 
 function delayActionAndSetCpuCard(element) {
-  //console.log("element result:" + element);
   spinAnimationRight(); 
   setTimeout(() => {
     if(element === "water") {
@@ -136,7 +134,7 @@ function delayActionAndSetCpuCard(element) {
     delayActionAndSetPlayerCard(value);
   };
 
-  // game logic
+  // Game logic and set scores
   useEffect(() => {
     console.log("playerScore:", playerScore);
     console.log("CPUScore:", cpuScore);
@@ -146,9 +144,14 @@ function delayActionAndSetCpuCard(element) {
     const elements = ["water", "fire", "grass"]; 
     let randomiser = Math.floor(Math.random() * 3);
     let cpuChoice = elements[randomiser]; 
-    console.log("player choice: " + playerChoice);
-    console.log("rnd result: " + elements[randomiser]);
+    //console.log("player choice: " + playerChoice);
+    //console.log("rnd result: " + elements[randomiser]);
     delayActionAndSetCpuCard(cpuChoice); 
+
+    if(playerScore === 5 || cpuScore === 5) {
+      console.log("game over!");
+      return;
+    } else {    
     setTimeout(() => { 
     if (playerChoice === cpuChoice) {
       //console.log("DRAW!");
@@ -177,7 +180,8 @@ function delayActionAndSetCpuCard(element) {
       setCpuScore(prevScore => prevScore + 1); 
       lostRoundSound();
     } 
-  }, 3000); 
+  }, 3000)}; 
+  // delays score update 
   console.log("149: playerScore: " + playerScore)
     
   }
@@ -188,7 +192,11 @@ function delayActionAndSetCpuCard(element) {
   
   return (
     <main>
+      <header>
+        <div></div>
       <h1>Card Champions</h1>
+      <Instructions /> 
+      </header>
       <h2>Score</h2>
       <div className="playerScoresDiv">
       <h3 id="playerScore">Challenger: {playerScore}</h3>
