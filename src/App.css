@@ -74,26 +74,26 @@ p {
   justify-content: space-between;
   margin: 0 2rem;
 }
-.testCard {
+.mysteryCard {
   width: 35%;
   height: 60%;
   margin: 1rem 0.8rem;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 .cardsContainer {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  border: solid 2px red;
   padding-bottom: 5rem;
   margin-bottom: 5rem;
+  /* border: solid 2px red; */
 }
 .cardsContainer div {
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
   padding-bottom: 5rem;
-  border: solid 1px green;
+  /* border: solid 1px green; */
 }
 
 #tripleCardsDiv {
@@ -161,4 +161,18 @@ strong {
 .strongTwo,
 .strongThree {
   color: #23e3e3;
+}
+
+#showDrawResult {
+  display: block;
+  position: absolute;
+  right: 42%;
+  bottom: 45%;
+  color: #f5f907;
+  font-size: 3rem;
+  /* opacity: 1; */
+}
+
+.hide {
+  opacity: 0;
 }

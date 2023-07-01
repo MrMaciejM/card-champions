@@ -8,6 +8,7 @@ import fireCard from "./assets/fire-card.gif";
 import grassCard from "./assets/grass-card.gif";
 import cardDeck from "./assets/card-deck.gif";
 import testCard from "./assets/placeholder-card.png";
+import mysteryCard from "./assets/mysteryCardFinal.gif"
 
 // sound assets
 import waterSound from "./assets/Water-bubbles-fixed.mp3";
@@ -24,8 +25,8 @@ function App() {
   const [fireValue] = useState("fire");
   const [grassValue] = useState("grass");
 
-  const [leftCardPath, setleftCardPath] = useState(testCard);
-  const [rightCardPath, setRightCardPath] = useState(testCard);
+  const [leftCardPath, setleftCardPath] = useState(mysteryCard);
+  const [rightCardPath, setRightCardPath] = useState(mysteryCard);
 
   // Sound effect for cards
   function soundEffect(element) {
@@ -36,7 +37,7 @@ function App() {
         break;
       case "fire":
         const fireAudio = new Audio(fireSound);
-        fireAudio.volume = 0.3;
+        fireAudio.volume = 0.2;
         fireAudio.play();
         break;
       case "grass":
@@ -103,7 +104,7 @@ function delayActionAndSetPlayerCard(element) {
   }, 1000); 
   setTimeout(() => {        
     console.log("Timed out - 5 seconds");
-    setleftCardPath(testCard); 
+    setleftCardPath(mysteryCard); 
   }, 5000); 
 }
 
@@ -123,7 +124,7 @@ function delayActionAndSetCpuCard(element) {
   }, 1000); 
   setTimeout(() => {        
     console.log("CPU Timed out - 5 seconds");
-    setRightCardPath(testCard); 
+    setRightCardPath(mysteryCard); 
   }, 5000); 
 }
 
@@ -133,6 +134,7 @@ function delayActionAndSetCpuCard(element) {
     soundEffect(value);
     delayActionAndSetPlayerCard(value);
   };
+
 
   // Game logic and set scores
   useEffect(() => {
@@ -153,8 +155,14 @@ function delayActionAndSetCpuCard(element) {
       return;
     } else {    
     setTimeout(() => { 
+      // DRAW! 
     if (playerChoice === cpuChoice) {
-      //console.log("DRAW!");
+      // show / hide draw result 
+      const showDrawResultEl = document.getElementById("showDrawResult"); 
+      showDrawResultEl.classList.remove("hide"); 
+      setTimeout(() => {
+        showDrawResultEl.classList.add("hide"); 
+      }, 2000)
     }
     else if (playerChoice === "water" && cpuChoice === "grass") {
       setCpuScore(prevScore => prevScore + 1); 
@@ -211,8 +219,9 @@ function delayActionAndSetCpuCard(element) {
           <img id="grassCardImg" className="elemCards" src={grassCard} alt="grass card" onClick={() => handlePlayerChoice(grassValue)} />
         </div>
           <div id="cardBattleDiv">
-          <img id="battleCardLeft" className={`testCard`}  alt="aa" src={leftCardPath} />
-          <img id="battleCardRight" className="testCard" alt="aa" src={rightCardPath}  />
+            <p id="showDrawResult" className="hide">Draw!</p>
+          <img id="battleCardLeft" className={`mysteryCard`}  alt="aa" src={leftCardPath} />
+          <img id="battleCardRight" className="mysteryCard" alt="aa" src={rightCardPath}  />
           </div>
         <div className="cardDeckDiv">
           {/* prettier-ignore */}
