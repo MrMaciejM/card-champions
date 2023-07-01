@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/MrMaciejM/card-champions/static/css/main.4257dc23.css",
+    "main.js": "/MrMaciejM/card-champions/static/js/main.eca85cab.js",
+    "static/media/mysteryCardFinal.gif": "/MrMaciejM/card-champions/static/media/mysteryCardFinal.f7d503a630cf0328ba93.gif",
+    "static/media/grass-card.gif": "/MrMaciejM/card-champions/static/media/grass-card.ca55661a40242e3e45b3.gif",
+    "static/media/fire-card.gif": "/MrMaciejM/card-champions/static/media/fire-card.9fff221bd25389bc7c25.gif",
+    "static/media/card-deck.gif": "/MrMaciejM/card-champions/static/media/card-deck.cac99b3c58bcc9ea2ec2.gif",
+    "static/media/water-card.gif": "/MrMaciejM/card-champions/static/media/water-card.e54457c6c9b730cdaca5.gif",
+    "static/media/YsabeauSC-VariableFont_wght.ttf": "/MrMaciejM/card-champions/static/media/YsabeauSC-VariableFont_wght.b556c9de80a323c7b6f9.ttf",
+    "static/media/CC-theme.png": "/MrMaciejM/card-champions/static/media/CC-theme.7dd4865499cfcb083d7d.png",
+    "static/media/Fire-intense.mp3": "/MrMaciejM/card-champions/static/media/Fire-intense.884c5576972fb0cdd6a4.mp3",
+    "static/media/Leaves-rustle.mp3": "/MrMaciejM/card-champions/static/media/Leaves-rustle.bd8df87aa8eedacdaf59.mp3",
+    "static/media/Water-bubbles-fixed.mp3": "/MrMaciejM/card-champions/static/media/Water-bubbles-fixed.dccb08e0a92f81f9554f.mp3",
+    "static/media/zap-effect.mp3": "/MrMaciejM/card-champions/static/media/zap-effect.8a56fc50dee913d662f2.mp3",
+    "static/media/score-sound.mp3": "/MrMaciejM/card-champions/static/media/score-sound.23941cb9ca3559548221.mp3",
+    "static/media/placeholder-card.png": "/MrMaciejM/card-champions/static/media/placeholder-card.9b2ebe7ff6f9d17e33d5.png",
+    "static/media/Caprasimo-Regular.ttf": "/MrMaciejM/card-champions/static/media/Caprasimo-Regular.1fb14e3bf85c52709856.ttf",
+    "static/media/papyrus.png": "/MrMaciejM/card-champions/static/media/papyrus.cb3a4deb970fbfd92a01.png",
+    "index.html": "/MrMaciejM/card-champions/index.html",
+    "main.4257dc23.css.map": "/MrMaciejM/card-champions/static/css/main.4257dc23.css.map",
+    "main.eca85cab.js.map": "/MrMaciejM/card-champions/static/js/main.eca85cab.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4257dc23.css",
+    "static/js/main.eca85cab.js"
+  ]
+}
