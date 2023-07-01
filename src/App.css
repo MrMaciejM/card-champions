@@ -12,13 +12,17 @@ header {
 header h1 {
   text-align: center;
 }
+/* aka papyrus */
 #instructionsElement {
   width: 45%;
   margin-left: 50%;
+  transition: all 1s;
 }
-
+/* aka papyrus */
 #instructionsElement:hover {
   cursor: pointer;
+  filter: contrast(0.5);
+  transition: all 1s;
 }
 
 h1,
@@ -152,4 +156,9 @@ h2 {
 }
 strong {
   color: #e7e707;
+}
+.strongOne,
+.strongTwo,
+.strongThree {
+  color: #23e3e3;
 }

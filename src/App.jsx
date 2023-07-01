@@ -1,5 +1,5 @@
 import "./App.css";
-import Instructions from "./instructions"; 
+import GameInstructions from "./instructions"; 
 import React, {useState, useEffect} from "react"; 
 
 // image/gif assets 
@@ -195,7 +195,7 @@ function delayActionAndSetCpuCard(element) {
       <header>
         <div></div>
       <h1>Card Champions</h1>
-      <Instructions /> 
+      <GameInstructions />
       </header>
       <h2>Score</h2>
       <div className="playerScoresDiv">
