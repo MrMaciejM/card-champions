@@ -7,7 +7,7 @@ import waterCard from "./assets/water-card.gif";
 import fireCard from "./assets/fire-card.gif";
 import grassCard from "./assets/grass-card.gif";
 import cardDeck from "./assets/card-deck.gif";
-import testCard from "./assets/placeholder-card.png";
+//import testCard from "./assets/placeholder-card.png";
 import mysteryCard from "./assets/mysteryCardFinal.gif"
 
 // sound assets
@@ -18,8 +18,8 @@ import scoreSound from "./assets/score-sound.mp3";
 import zapSound from "./assets/zap-effect.mp3";
 
 function App() {
-  const [playerScore, setPlayerScore] = useState(4);
-  const [cpuScore, setCpuScore] = useState(4);
+  const [playerScore, setPlayerScore] = useState(0);
+  const [cpuScore, setCpuScore] = useState(0);
   const [victor, setVictor] = useState("Challenger"); 
 
   const [waterValue] = useState("water");
