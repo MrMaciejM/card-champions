@@ -174,5 +174,48 @@ strong {
 }
 
 .hide {
-  opacity: 0;
+  opacity: 0 !important;
+}
+
+/* Declare the winner */
+#winnerDiv {
+  display: block;
+  position: absolute;
+  right: 22%;
+  bottom: 45%;
+  background-color: #4ba7f8;
+  border: solid 2px #036cc8;
+  width: 50%;
+  height: 40%;
+  opacity: 0.9;
+}
+#winnerDiv div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#winnerPara {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#btnPlayAgain {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 11px;
+  padding: 0.4rem;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  background-color: #036cc8;
+}
+#btnPlayAgain:hover {
+  cursor: pointer;
+}
+#btnPlayAgain:active {
+  cursor: pointer;
+  background-color: #004683;
 }

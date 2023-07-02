@@ -18,8 +18,9 @@ import scoreSound from "./assets/score-sound.mp3";
 import zapSound from "./assets/zap-effect.mp3";
 
 function App() {
-  const [playerScore, setPlayerScore] = useState(0);
-  const [cpuScore, setCpuScore] = useState(0);
+  const [playerScore, setPlayerScore] = useState(4);
+  const [cpuScore, setCpuScore] = useState(4);
+  const [victor, setVictor] = useState("Challenger"); 
 
   const [waterValue] = useState("water");
   const [fireValue] = useState("fire");
@@ -128,6 +129,30 @@ function delayActionAndSetCpuCard(element) {
   }, 5000); 
 }
 
+  // declare winner/loser and show play again option
+  function showVictor() {
+    const winnerDivEl = document.getElementById("winnerDiv")
+    console.log("winnerDivEl: " + winnerDivEl);
+    if (playerScore === 5) {    
+      console.log("inside playerScore = 5");  
+      setVictor("Challenger")
+      winnerDivEl.classList.remove("hide"); 
+    }
+     else if (cpuScore === 5) {
+      setVictor("Card Champion")
+      console.log("inside cpuScore = 5");
+      winnerDivEl.classList.remove("hide"); 
+     }
+  }
+
+  function newGame() {
+    const winnerDivEl = document.getElementById("winnerDiv")
+    setCpuScore(0);
+    setPlayerScore(0); 
+    winnerDivEl.classList.add("hide"); 
+
+  }
+
   // Handle player choice - value depends on the card clicked
   const handlePlayerChoice = (value) => {
     cpuLogic(value);
@@ -135,11 +160,11 @@ function delayActionAndSetCpuCard(element) {
     delayActionAndSetPlayerCard(value);
   };
 
-
   // Game logic and set scores
   useEffect(() => {
     console.log("playerScore:", playerScore);
     console.log("CPUScore:", cpuScore);
+    showVictor();
   }, [playerScore, cpuScore]);
  
   function cpuLogic (playerChoice) {
@@ -151,6 +176,7 @@ function delayActionAndSetCpuCard(element) {
     delayActionAndSetCpuCard(cpuChoice); 
 
     if(playerScore === 5 || cpuScore === 5) {
+      //showVictor(); 
       console.log("game over!");
       return;
     } else {    
@@ -219,6 +245,12 @@ function delayActionAndSetCpuCard(element) {
           <img id="grassCardImg" className="elemCards" src={grassCard} alt="grass card" onClick={() => handlePlayerChoice(grassValue)} />
         </div>
           <div id="cardBattleDiv">
+            <div id="winnerDiv" className="hide">
+              <div>
+                <p id="winnerPara">Winner:<br/>{victor}</p>
+                <button id="btnPlayAgain" onClick={newGame}>Play Again</button>
+              </div>
+            </div>
             <p id="showDrawResult" className="hide">Draw!</p>
           <img id="battleCardLeft" className={`mysteryCard`}  alt="aa" src={leftCardPath} />
           <img id="battleCardRight" className="mysteryCard" alt="aa" src={rightCardPath}  />
