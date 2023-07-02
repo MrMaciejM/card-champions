@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/card-champions/static/css/main.f14513f3.css",
-    "main.js": "/card-champions/static/js/main.dba521b4.js",
+    "main.css": "/card-champions/static/css/main.03bad8a9.css",
+    "main.js": "/card-champions/static/js/main.baa2d552.js",
     "static/media/mysteryCardFinal.gif": "/card-champions/static/media/mysteryCardFinal.f7d503a630cf0328ba93.gif",
     "static/media/grass-card.gif": "/card-champions/static/media/grass-card.ca55661a40242e3e45b3.gif",
     "static/media/fire-card.gif": "/card-champions/static/media/fire-card.9fff221bd25389bc7c25.gif",
@@ -14,15 +14,14 @@
     "static/media/Water-bubbles-fixed.mp3": "/card-champions/static/media/Water-bubbles-fixed.dccb08e0a92f81f9554f.mp3",
     "static/media/zap-effect.mp3": "/card-champions/static/media/zap-effect.8a56fc50dee913d662f2.mp3",
     "static/media/score-sound.mp3": "/card-champions/static/media/score-sound.23941cb9ca3559548221.mp3",
-    "static/media/placeholder-card.png": "/card-champions/static/media/placeholder-card.9b2ebe7ff6f9d17e33d5.png",
     "static/media/Caprasimo-Regular.ttf": "/card-champions/static/media/Caprasimo-Regular.1fb14e3bf85c52709856.ttf",
     "static/media/papyrus.png": "/card-champions/static/media/papyrus.cb3a4deb970fbfd92a01.png",
     "index.html": "/card-champions/index.html",
-    "main.f14513f3.css.map": "/card-champions/static/css/main.f14513f3.css.map",
-    "main.dba521b4.js.map": "/card-champions/static/js/main.dba521b4.js.map"
+    "main.03bad8a9.css.map": "/card-champions/static/css/main.03bad8a9.css.map",
+    "main.baa2d552.js.map": "/card-champions/static/js/main.baa2d552.js.map"
   },
   "entrypoints": [
-    "static/css/main.f14513f3.css",
-    "static/js/main.dba521b4.js"
+    "static/css/main.03bad8a9.css",
+    "static/js/main.baa2d552.js"
   ]
 }
