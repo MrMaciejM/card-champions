@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/card-champions/static/css/main.03bad8a9.css",
-    "main.js": "/card-champions/static/js/main.baa2d552.js",
+    "main.css": "/card-champions/static/css/main.69e96a8a.css",
+    "main.js": "/card-champions/static/js/main.847f5302.js",
     "static/media/mysteryCardFinal.gif": "/card-champions/static/media/mysteryCardFinal.f7d503a630cf0328ba93.gif",
     "static/media/grass-card.gif": "/card-champions/static/media/grass-card.ca55661a40242e3e45b3.gif",
     "static/media/fire-card.gif": "/card-champions/static/media/fire-card.9fff221bd25389bc7c25.gif",
@@ -17,11 +17,11 @@
     "static/media/Caprasimo-Regular.ttf": "/card-champions/static/media/Caprasimo-Regular.1fb14e3bf85c52709856.ttf",
     "static/media/papyrus.png": "/card-champions/static/media/papyrus.cb3a4deb970fbfd92a01.png",
     "index.html": "/card-champions/index.html",
-    "main.03bad8a9.css.map": "/card-champions/static/css/main.03bad8a9.css.map",
-    "main.baa2d552.js.map": "/card-champions/static/js/main.baa2d552.js.map"
+    "main.69e96a8a.css.map": "/card-champions/static/css/main.69e96a8a.css.map",
+    "main.847f5302.js.map": "/card-champions/static/js/main.847f5302.js.map"
   },
   "entrypoints": [
-    "static/css/main.03bad8a9.css",
-    "static/js/main.baa2d552.js"
+    "static/css/main.69e96a8a.css",
+    "static/js/main.847f5302.js"
   ]
 }
