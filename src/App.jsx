@@ -7,7 +7,6 @@ import waterCard from "./assets/water-card.gif";
 import fireCard from "./assets/fire-card.gif";
 import grassCard from "./assets/grass-card.gif";
 import cardDeck from "./assets/card-deck.gif";
-//import testCard from "./assets/placeholder-card.png";
 import mysteryCard from "./assets/mysteryCardFinal.gif"
 
 // sound assets
@@ -104,7 +103,6 @@ function delayActionAndSetPlayerCard(element) {
     }
   }, 1000); 
   setTimeout(() => {        
-    console.log("Timed out - 5 seconds");
     setleftCardPath(mysteryCard); 
   }, 5000); 
 }
@@ -124,7 +122,6 @@ function delayActionAndSetCpuCard(element) {
     }
   }, 1000); 
   setTimeout(() => {        
-    console.log("CPU Timed out - 5 seconds");
     setRightCardPath(mysteryCard); 
   }, 5000); 
 }
@@ -132,15 +129,12 @@ function delayActionAndSetCpuCard(element) {
   // declare winner/loser and show play again option
   function showVictor() {
     const winnerDivEl = document.getElementById("winnerDiv")
-    console.log("winnerDivEl: " + winnerDivEl);
     if (playerScore === 5) {    
-      console.log("inside playerScore = 5");  
       setVictor("Challenger")
       winnerDivEl.classList.remove("hide"); 
     }
      else if (cpuScore === 5) {
       setVictor("Card Champion")
-      console.log("inside cpuScore = 5");
       winnerDivEl.classList.remove("hide"); 
      }
   }
@@ -150,7 +144,6 @@ function delayActionAndSetCpuCard(element) {
     setCpuScore(0);
     setPlayerScore(0); 
     winnerDivEl.classList.add("hide"); 
-
   }
 
   // Handle player choice - value depends on the card clicked
@@ -162,8 +155,6 @@ function delayActionAndSetCpuCard(element) {
 
   // Game logic and set scores
   useEffect(() => {
-    console.log("playerScore:", playerScore);
-    console.log("CPUScore:", cpuScore);
     showVictor();
   }, [playerScore, cpuScore]);
  
@@ -171,13 +162,9 @@ function delayActionAndSetCpuCard(element) {
     const elements = ["water", "fire", "grass"]; 
     let randomiser = Math.floor(Math.random() * 3);
     let cpuChoice = elements[randomiser]; 
-    //console.log("player choice: " + playerChoice);
-    //console.log("rnd result: " + elements[randomiser]);
     delayActionAndSetCpuCard(cpuChoice); 
 
     if(playerScore === 5 || cpuScore === 5) {
-      //showVictor(); 
-      console.log("game over!");
       return;
     } else {    
     setTimeout(() => { 
@@ -215,9 +202,7 @@ function delayActionAndSetCpuCard(element) {
       lostRoundSound();
     } 
   }, 3000)}; 
-  // delays score update 
-  console.log("149: playerScore: " + playerScore)
-    
+  // delays score update     
   }
 
   // date for copyright 

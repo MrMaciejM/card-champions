@@ -44,6 +44,7 @@ p {
 .copyright {
   font-size: 1.2rem;
 }
+
 .elemCards {
   width: 90%;
   height: auto;
@@ -51,16 +52,13 @@ p {
   margin: 1rem 0.5rem;
   cursor: pointer;
 }
-
 .elemCards:active {
   filter: saturate(2.5);
-}
-#grassCardImg {
-  /* border: solid 5px red; */
 }
 .cardDeckDiv {
   justify-content: center !important;
 }
+
 #cardDeckImg {
   width: 60%;
   height: 60%;
