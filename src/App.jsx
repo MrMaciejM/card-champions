@@ -256,6 +256,7 @@ function delayActionAndSetCpuCard(element) {
           <img id="battleCardRight" className="mysteryCard" alt="aa" src={rightCardPath}  />
           </div>
         <div className="cardDeckDiv">
+          {/* Champion Card */}
           {/* prettier-ignore */}
           <img id="cardDeckImg" className="elemCards" src={cardDeck} alt="water card" />
         </div>

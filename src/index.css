@@ -19,10 +19,117 @@
 }
 
 body {
-  font-family: "Ysabeau_SC";
+  font-family: "Ysabeau_SC", sans-serif;
   font-size: 1.4rem;
   background-image: url("/src/assets/CC-theme.png");
   background-position: right;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 1925px) {
+  /* instructions */
+  /* instructions image */
+  #instructionsElement {
+    width: 25%;
+    margin-left: 60%;
+    height: auto;
+  }
+  /* instructions container */
+  .instructionsDiv {
+    width: 40%;
+    padding: 0 2rem;
+  }
+  /* Draw element */
+  #showDrawResult {
+    right: 46.2%;
+    bottom: 45%;
+    font-size: 3rem;
+    /* opacity: 1 !important; */
+  }
+  /* elemental cards */
+  .elemCards {
+    width: 70%;
+    margin: 1rem 0.5rem;
+  }
+  #tripleCardsDiv img:nth-child(2) {
+    margin-left: -1rem;
+  }
+  #tripleCardsDiv img:nth-child(3) {
+    margin-left: 46%;
+  }
+  /* mystery cards */
+  .mysteryCard {
+    width: 25%;
+    height: 60%;
+    margin: 1rem 5rem;
+  }
+  /* champion card */
+  #cardDeckImg {
+    width: 50%;
+    margin-left: 10rem;
+    /* border: solid 2px yellow; */
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  /* instructions */
+  /* instructions container */
+  .instructionsDiv {
+    width: 60%;
+    padding: 0 2rem;
+  }
+  /* Draw element */
+  #showDrawResult {
+    right: 46.5%;
+    bottom: 55%;
+    font-size: 2.4rem;
+    /* opacity: 1 !important; */
+  }
+}
+
+@media screen and (max-width: 1425px) {
+  /* instructions */
+  /* instructions image */
+  #instructionsElement {
+    width: 25%;
+    margin-left: 60%;
+    height: auto;
+  }
+  /* instructions container */
+  .instructionsDiv {
+    width: 60%;
+    padding: 0 2rem;
+  }
+  /* Draw element */
+  #showDrawResult {
+    right: 46%;
+    bottom: 55%;
+    font-size: 2rem;
+    /* opacity: 1 !important; */
+  }
+  /* elemental cards */
+  .elemCards {
+    width: 70%;
+    margin: 1rem 0.5rem;
+  }
+  #tripleCardsDiv img:nth-child(2) {
+    margin-left: -1rem;
+  }
+  #tripleCardsDiv img:nth-child(3) {
+    margin-left: 46%;
+  }
+  /* mystery cards */
+  .mysteryCard {
+    width: 25%;
+    height: 60%;
+    margin: 1rem 1rem;
+  }
+  /* champion card */
+  #cardDeckImg {
+    width: 50%;
+    margin-left: 1rem;
+    /* border: solid 2px yellow; */
+  }
 }
