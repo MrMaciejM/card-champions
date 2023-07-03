@@ -2,6 +2,8 @@
 
 Welcome challenger, you have been tasked with an almost impossible task: to defeat the Card Champion. Read the ancient papyrus to gain the secret knowledge essential to win, and may the random JavaScript algorithm be with you.
 
+PLAY THE GAME: https://mrmaciejm.github.io/card-champions/
+
 ## Purpose of this project
 
 I have created this project with few goals in mind:
