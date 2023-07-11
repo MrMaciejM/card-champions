@@ -4,7 +4,7 @@ Welcome challenger, you have been tasked with an almost impossible task: to defe
 
 PLAY THE GAME: https://mrmaciejm.github.io/card-champions/
 
-## Purpose of this project
+## Purpose Of This Project
 
 I have created this project with few goals in mind:
 
@@ -14,15 +14,30 @@ I have created this project with few goals in mind:
 - Avoid getting 'rusty' with React and coding while I am job hunting
 - This project was laid out as a foundation for my bigger project that I plan to do in the future, after I sharpen my skills much more
 
+## Bug Fixes and Updates
+
+Tuesday 11th July 2023
+
+- Fixed bug with the background not rendering properly when scaled to lower resolution
+- Added table of contents to the App.jsx file for easier navigation
+- Cleaned up and consolidated the CSS code, removed repeated code
+
 ## Future Development
 
-Few things I want to add to this project in future updates:
+There are a few things I want to add to this project in the future updates:
 
+- Add 'Win' / 'Loss' after the player's turn
+- Minor bug fixes
+- Add gameplay mechanic (secret)
 - Dynamic background theme
 - Custom made battle music
-- Volume controls for the music
+- Volume controls for the music and sound effects
 - Bonus development diary video, highlighting the process from start to finish  
    (including challenges faced, commentary and so forth)
+
+## Game Video
+
+![Trailer of the game](./src/assets/cardChampions-demo.gif)
 
 ## Screenshots
 
