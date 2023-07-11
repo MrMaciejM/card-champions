@@ -16,6 +16,19 @@ import grassSound from "./assets/Leaves-rustle.mp3";
 import scoreSound from "./assets/score-sound.mp3";
 import zapSound from "./assets/zap-effect.mp3";
 
+/* 
+  Index 
+  - Line 37 - Sound effect for cards
+  - Line 64 - Sound effects for won and loss rounds
+  - Line 80 - Animation of battle cards
+  - Line 101 - Delay action and set player card appearance 
+  - Line 120 - Delay action and set CPU card appearance
+  - Line 141 - Declare winner/loser and show play again option
+  - Line 161 - Handle player choice - value depends on the card clicked
+  - Line 168 - Game logic and set scores
+  - Line 220 - Date for copyright
+*/
+
 function App() {
   const [playerScore, setPlayerScore] = useState(0);
   const [cpuScore, setCpuScore] = useState(0);
@@ -126,7 +139,7 @@ function delayActionAndSetCpuCard(element) {
   }, 5000); 
 }
 
-  // declare winner/loser and show play again option
+  // Declare winner/loser and show play again option
   function showVictor() {
     const winnerDivEl = document.getElementById("winnerDiv")
     if (playerScore === 5) {    
@@ -205,7 +218,7 @@ function delayActionAndSetCpuCard(element) {
   // delays score update     
   }
 
-  // date for copyright 
+  // Date for copyright 
   const currentDate = new Date();
   const dateFormatted = currentDate.getFullYear(); 
   
