@@ -133,3 +133,15 @@ body {
     /* border: solid 2px yellow; */
   }
 }
+
+/* FIXES BUG WITH THE BACKGROUND NOT ADJUSTING AS EXPECTED */
+@media screen and (max-width: 1470px) {
+  main {
+    padding-bottom: 20%;
+  }
+}
+@media screen and (max-width: 844px) {
+  main {
+    padding-bottom: 35%;
+  }
+}
